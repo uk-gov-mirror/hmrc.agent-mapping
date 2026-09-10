@@ -23,7 +23,7 @@ import org.mongodb.scala.model.IndexModel
 import org.mongodb.scala.model.IndexOptions
 import org.mongodb.scala.result.DeleteResult
 import org.mongodb.scala.result.InsertOneResult
-import play.api.Logging
+import uk.gov.hmrc.agentmapping.util.RequestAwareLogging
 import play.api.libs.json.Format
 import uk.gov.hmrc.agentmapping.model.AgentReferenceMapping
 import uk.gov.hmrc.agentmapping.model.Arn
@@ -75,7 +75,7 @@ extends PlayMongoRepository[AgentReferenceMapping](
     Codecs.playFormatCodec(Format(Arn.arnReads, Arn.arnWrites))
   )
 )
-with Logging:
+with RequestAwareLogging:
 
   override lazy val requiresTtlIndex = false // keep data
 

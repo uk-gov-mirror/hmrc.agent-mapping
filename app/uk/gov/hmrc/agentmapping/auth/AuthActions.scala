@@ -16,7 +16,7 @@
 
 package uk.gov.hmrc.agentmapping.auth
 
-import play.api.Logging
+import uk.gov.hmrc.agentmapping.util.RequestAwareLogging
 import play.api.mvc.*
 import uk.gov.hmrc.agentmapping.model.Arn
 import uk.gov.hmrc.agentmapping.model.BasicAuthentication
@@ -46,7 +46,7 @@ class AuthActions @Inject() (
 )
 extends BackendController(cc)
 with AuthorisedFunctions
-with Logging:
+with RequestAwareLogging:
 
   private type HasEligibleEnrolments = Boolean
   private type ProviderId = String

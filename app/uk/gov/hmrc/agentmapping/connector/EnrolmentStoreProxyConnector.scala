@@ -25,7 +25,7 @@ import play.api.mvc.RequestHeader
 import uk.gov.hmrc.agentmapping.config.AppConfig
 import uk.gov.hmrc.agentmapping.connector.EnrolmentStoreProxyConnector.responseHandler
 import uk.gov.hmrc.agentmapping.model.{Enrolment => ModelEnrolment}
-import uk.gov.hmrc.agentmapping.util.RequestSupport.headerCarrier
+import uk.gov.hmrc.agentmapping.util.RequestSupport.hc
 import uk.gov.hmrc.agentmapping.util._
 import uk.gov.hmrc.http.client.HttpClientV2
 import uk.gov.hmrc.http.HttpReads

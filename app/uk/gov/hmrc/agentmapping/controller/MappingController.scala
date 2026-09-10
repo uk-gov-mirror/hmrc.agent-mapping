@@ -17,12 +17,12 @@
 package uk.gov.hmrc.agentmapping.controller
 
 import com.mongodb.MongoWriteException
-import play.api.Logging
 import play.api.libs.json.Json.toJson
 import play.api.libs.json._
 import play.api.mvc._
 import uk.gov.hmrc.agentmapping.audit.AuditService
 import uk.gov.hmrc.agentmapping.auth.AuthActions
+import uk.gov.hmrc.agentmapping.util.RequestAwareLogging
 import uk.gov.hmrc.agentmapping.connector.EnrolmentStoreProxyConnector
 import uk.gov.hmrc.agentmapping.model._
 import uk.gov.hmrc.agentmapping.repository._
@@ -44,7 +44,7 @@ class MappingController @Inject() (
   implicit val ec: ExecutionContext
 )
 extends BackendController(cc)
-with Logging:
+with RequestAwareLogging:
 
   def hasEligibleEnrolments: Action[AnyContent] = authActions.authorisedWithEnrolments { implicit request => hasEligibleEnrolments =>
     Future.successful(Ok(Json.obj("hasEligibleEnrolments" -> hasEligibleEnrolments)))

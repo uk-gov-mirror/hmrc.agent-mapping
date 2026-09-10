@@ -80,7 +80,7 @@ class AuditService @Inject() (val auditConnector: AuditConnector)(implicit ec: E
   )(implicit
     request: Request[Any]
   ): DataEvent =
-    val hc = RequestSupport.headerCarrier
+    val hc = RequestSupport.hc
     DataEvent(
       auditSource = "agent-mapping",
       auditType = event.toString,
